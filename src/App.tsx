@@ -23,14 +23,12 @@ function App() {
 
         <Route path="/welcome" element={<Welcome />} />
         <Route path="/home" element={<Home />} />
-
         <Route path="activity/:type" element={<Activity />} />
-
         <Route path="/music" element={<Music />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/reminders" element={<Reminders />} />
         <Route path="/:article/:id" element={<PageDetail />} />
-        <Route path="/meditationplayer" element={<MeditationPlayer />} />
+        <Route path="/meditationplayer/:id" element={<MeditationPlayer />} />
       </Route>
     )
   );
