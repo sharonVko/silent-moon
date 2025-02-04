@@ -7,12 +7,11 @@ import { SignUp } from './pages/signUp/SignUp';
 import { Welcome } from './pages/welcome/Welcome';
 import { Home } from './pages/home/Home';
 import { PageDetail } from './pages/pageDetail/PageDetail';
-import { Yoga } from './pages/yoga/Yoga';
-import { Meditate } from './pages/meditate/Meditate';
 import { Music } from './pages/music/Music';
 import { Profile } from './pages/profile/Profile';
 import { Reminders } from './pages/reminders/Reminders';
 import { MeditationPlayer } from './pages/meditationPlayer/MeditationPlayer';
+import { Activity } from './pages/activity/Activity';
 
 function App() {
   const router = createBrowserRouter(
@@ -24,8 +23,9 @@ function App() {
 
         <Route path="/welcome" element={<Welcome />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/yoga" element={<Yoga />} />
-        <Route path="/meditate" element={<Meditate />} />
+
+        <Route path="activity/:type" element={<Activity />} />
+
         <Route path="/music" element={<Music />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/reminders" element={<Reminders />} />
