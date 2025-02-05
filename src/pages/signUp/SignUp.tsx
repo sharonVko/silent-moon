@@ -45,8 +45,8 @@ export default function SignUp() {
         password: password,
         options:{
           data: {
-            name: name || "",
-            surname: surname || ""
+            first_name: name || "",
+            last_name: surname || ""
           }
         }
       })
