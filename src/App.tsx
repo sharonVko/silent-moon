@@ -2,8 +2,8 @@ import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } 
 import './App.css';
 import { RootLayout } from './RootLayout/RootLayout';
 import { Login } from './pages/login/Login';
-import { SignIn } from './pages/signIn/SignIn';
-import { SignUp } from './pages/signUp/SignUp';
+// import { SignIn } from './pages/signIn/SignIn';
+// import { SignUp } from './pages/signUp/SignUp';
 import { Welcome } from './pages/welcome/Welcome';
 import { Home } from './pages/home/Home';
 import { PageDetail } from './pages/pageDetail/PageDetail';
@@ -12,6 +12,8 @@ import { Profile } from './pages/profile/Profile';
 import { Reminders } from './pages/reminders/Reminders';
 import { MeditationPlayer } from './pages/meditationPlayer/MeditationPlayer';
 import { Activity } from './pages/activity/Activity';
+import SignIn from './pages/signIn/SignIn';
+import SignUp from './pages/signUp/SignUp';
 
 function App() {
   const router = createBrowserRouter(
