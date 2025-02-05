@@ -84,3 +84,12 @@
 .white-bg {
     background-color: #FFFFFF;
 }
+
+/* button style pink*/
+
+.btn-pink{
+    background-color: #E28F83;
+    padding: 18px 7rem;
+    color: #FAF2DA ;
+    border-radius: 40px;
+}
