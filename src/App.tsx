@@ -15,6 +15,7 @@ import { Profile } from './pages/profile/Profile';
 
 import SignIn from './pages/signIn/SignIn';
 import SignUp from './pages/signUp/SignUp';
+import { Profile } from './pages/profile/Profile';
 
 
 
