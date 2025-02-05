@@ -1,26 +1,129 @@
 @import 'tailwindcss';
 @plugin "daisyui";
 
+
 @font-face {
-  font-family: 'Source Sans Pro 1';
-  src: url('/src/fonts/sourcesansprosemibold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-  line-height: 120%;
+    font-family: 'Source Sans Pro 1';
+    src: url('/src/fonts/sourcesansprosemibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    line-height: 120%;
 }
 
 @font-face {
-  font-family: 'Source Sans Pro 2';
-  src: url('/src/fonts/sourcesansprobold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  line-height: 120%;
+    font-family: 'Source Sans Pro 2';
+    src: url('/src/fonts/sourcesansprobold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    line-height: 120%;
 }
 
 @font-face {
-  font-family: 'Source Sans Pro 3';
-  src: url('/src/fonts/sourcesansproblack.ttf') format('truetype');
-  font-weight: 900;
-  font-style: normal;
-  line-height: 120%;
+    font-family: 'Source Sans Pro 3';
+    src: url('/src/fonts/sourcesansproblack.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    line-height: 120%;
 }
+
+/* Colors */
+
+.cream{
+    color: #FAF2DA
+}
+
+.light-green {
+    color: #8E9775
+}
+
+.dark-green {
+    color: #4A503D;
+}
+
+.pink{
+    color: #E28F83;
+}
+
+.light-cream {
+    color: #FEFCF8;
+}
+
+.grey{
+    color: #A1A4B2;
+}
+
+.white{
+    color: #FFFFFF;
+}
+
+/* Backgrounds */
+
+.cream-bg {
+    background-color: #FAF2DA
+}
+
+.light-green-bg {
+    background-color: #8E9775
+}
+
+.dark-green-bg {
+    background-color: #4A503D;
+}
+
+.pink-bg {
+    background-color: #E28F83;
+}
+
+.light-cream-bg {
+    background-color: #FEFCF8;
+}
+
+.grey-bg {
+    background-color: #A1A4B2;
+}
+
+.white-bg {
+    background-color: #FFFFFF;
+}
+
+/* button style pink*/
+
+.btn-pink{
+    background-color: #E28F83;
+    padding: 18px 7rem;
+    color: #FAF2DA ;
+    border-radius: 40px;
+}
+
+/* Fonts */
+
+.sans-pro-600 {
+    font-family: 'Source Sans Pro 1';
+} 
+.sans-pro-700 {
+    font-family: 'Source Sans Pro 2';
+} 
+.sans-pro-900 {
+    font-family: 'Source Sans Pro 3';
+} 
+
+/* Font Sizes */
+.f-s-11{
+    font-size: 11px;
+}
+.f-s-16{
+    font-size: 16px;
+}
+.f-s-18{
+    font-size: 18px;
+}
+.f-s-24{
+    font-size: 24px;
+}
+.f-s-30{
+    font-size: 30px;
+}
+.f-s-36{
+    font-size: 36px;
+}
+
