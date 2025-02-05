@@ -37,7 +37,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/reminders" element={<Reminders />} />
         <Route path="/:article/:id" element={<PageDetail />} />
-        <Route path="/meditationplayer/:id" element={<MeditationPlayer />} />
+        <Route path="/player/:id" element={<MeditationPlayer />} />
       </Route>
     )
   );
