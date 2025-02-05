@@ -11,10 +11,12 @@ import { Music } from './pages/music/Music';
 import { Reminders } from './pages/reminders/Reminders';
 import { MeditationPlayer } from './pages/meditationPlayer/MeditationPlayer';
 import { Activity } from './pages/activity/Activity';
+import { Profile } from './pages/profile/Profile';
 
 import SignIn from './pages/signIn/SignIn';
 import SignUp from './pages/signUp/SignUp';
 import { Profile } from './pages/profile/Profile';
+
 
 
 function App() {
