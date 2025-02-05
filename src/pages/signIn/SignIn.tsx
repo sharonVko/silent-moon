@@ -36,10 +36,12 @@ export default function SignIn(){
 
   return (
     <>
-      <form onSubmit={handleSignIn}>
-        <input type="text" name="email" placeholder="E-mail" ref={emailRef} />
-        <input type="text" name="password" placeholder="Password" ref={passwordRef} />
-        <button>Login</button>
+      <h1 className="text-center sans-pro-900 f-s-36 dark-green mb-20 mt-24">Welcome Back!</h1>
+
+      <form className="flex flex-col items-center" onSubmit={handleSignIn}>
+        <input className="input f-s-16 text-center mt-1.5 mb-1.5 uppercase" type="text" name="email" placeholder="E-mail" ref={emailRef} />
+        <input className="input f-s-16 text-center mt-1.5 mb-1.5 uppercase" type="text" name="password" placeholder="Password" ref={passwordRef} />
+        <button className="btn-pink mt-1.5">Login</button>
       </form>
       <p>Don't have an account yet? <Link to="/signup">Sign Up</Link></p>
     </>

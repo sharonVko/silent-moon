@@ -9,7 +9,6 @@ export const Login = () => {
   return <>
           <div className="">
             <img className="" src="./img/landing_page.png" alt="Dude doing yoga stuff" />
-            {/* <h3 className="absolute inset-x-0 top-1  z-1 text-center">SILENT MOON</h3> */}
             <Header/>
           </div>
       
@@ -20,7 +19,7 @@ export const Login = () => {
           </div>
 
           <div className="text-center p-5 ">
-            <Link to="/signup"><button className="btn-pink">Sign Up</button></Link>
+            <Link to="/signup"><button className="btn-pink f-s-16">Sign Up</button></Link>
             <p className="mt-2 sans-pro-600 grey f-s-16 ">ALREADY HAVE AN ACCOUNT? <Link className="pink" to="/signin">LOG IN</Link></p>
           </div>
   </>

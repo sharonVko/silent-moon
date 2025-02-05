@@ -90,8 +90,18 @@
 .btn-pink{
     background-color: #E28F83;
     padding: 18px 7rem;
-    color: #FAF2DA ;
+    color: #ffffff ;
     border-radius: 40px;
+    width: 80vw;
+}
+
+.input{
+    background-color: #ffffff;
+    border: 1px solid #E28F83;
+    padding: 18px 7rem;
+    color: #A1A4B2 ;
+    border-radius: 40px;
+    max-width: 80vw;
 }
 
 /* Fonts */
