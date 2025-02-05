@@ -12,14 +12,14 @@ export const Login = () => {
           </div>
       
           <div className="mt-10 mb-10 text-center">
-            <h1 className="p-5 sans-pro-700">We are what we do</h1>
-            <p>Thousand of people are using silent moon  
+            <h1 className="p-2 sans-pro-900 f-s-36 dark-green">We are what we do</h1>
+            <p className="sans-pro-600 f-s-16 grey p-2">Thousand of people are using silent moon  
             for meditation and yoga classes.</p>
           </div>
 
           <div className="text-center p-5 ">
             <Link to="/signup"><button className="">Sign Up</button></Link>
-            <p className="mt-2 brand-blue">ALREADY HAVE AN ACCOUNT? <Link to="/signin">LOG IN</Link></p>
+            <p className="mt-2 sans-pro-600 grey f-s-16 ">ALREADY HAVE AN ACCOUNT? <Link className="pink" to="/signin">LOG IN</Link></p>
           </div>
   </>
 
