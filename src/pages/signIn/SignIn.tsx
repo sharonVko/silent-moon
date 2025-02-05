@@ -1,11 +1,13 @@
 import { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import supabase from "../../utils/supabase";
+import { useUserContext } from "../../context/UserProvider";
 // import { SignUp } from "../signUp/SignUp";
 
 export default function SignIn(){
   const navigate = useNavigate()
 
+  const {logInSystem, user} = useUserContext()
   const emailRef = useRef<HTMLInputElement>(null)
   const passwordRef = useRef<HTMLInputElement>(null)
 
@@ -20,7 +22,12 @@ export default function SignIn(){
         password: password
       })
       navigate("/home")
-      console.log(data, error);
+      const { data: dataSession, error: errorSession } = await supabase.auth.getSession();
+      console.log(errorSession);
+      
+
+      logInSystem(dataSession.session?.user);
+      console.log(data, error, user);
     }
     catch (error){
       console.error(error);
