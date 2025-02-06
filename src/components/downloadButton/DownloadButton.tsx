@@ -1,4 +1,3 @@
-import React from 'react';
 import { useLocation } from 'react-router-dom';
 
 export const DownloadButton = ({ video, image, musik }: { video?: string; image?: string; musik?: string }) => {
