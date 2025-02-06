@@ -31,7 +31,7 @@ export const PreviewCard: React.FC<IPreviewCardProps> = ({ title, level, id, ima
             className={`rounded-3xl w-[70px] h-[35px] flex items-center justify-center ${
               !image_url ? 'bg-[#FFECCC]' : 'bg-[#4A503D]'
             }`}>
-            <Link className="" to={`/activity/${id}`}>
+            <Link className="" to={`/${video_url ? 'yoga' : 'meditation'}/${id}`}>
               START
             </Link>
           </div>
