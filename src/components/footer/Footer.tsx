@@ -12,11 +12,13 @@ import ProfileInactive from '/svg/profile_inactive.svg';
 
 export const Footer = () => {
   return (
+
     <footer
       className="flex justify-evenly fixed bottom-0 z-1 white-bg max-w-[414px] w-full
     p-2.5">
       <NavLink to="/activity/yoga">
         {({ isActive }) => <img src={isActive ? YogaActive : YogaInactive} alt="" className="w-12 h-12" />}
+
       </NavLink>
 
       <NavLink to="/activity/meditation">
