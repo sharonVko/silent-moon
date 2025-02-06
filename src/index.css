@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-@plugin "daisyui";
 
 
 @font-face {
@@ -90,9 +89,19 @@
 
 .btn-pink{
     background-color: #E28F83;
-    padding: 18px 7rem;
-    color: #FAF2DA ;
+    color: #ffffff ;
     border-radius: 40px;
+    width: 80vw;
+    height: 60px;
+}
+
+.input-sign{
+    background-color: #ffffff;
+    border: 1px solid #E28F83;
+    color: #A1A4B2 ;
+    border-radius: 40px;
+    width: 80vw;
+    height: 60px;
 }
 
 /* Fonts */
@@ -111,6 +120,9 @@
 .f-s-11{
     font-size: 11px;
 }
+.f-s-14{
+    font-size: 14px;
+}
 .f-s-16{
     font-size: 16px;
 }
@@ -126,4 +138,3 @@
 .f-s-36{
     font-size: 36px;
 }
-

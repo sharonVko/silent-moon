@@ -1,8 +1,10 @@
 import React, { useContext, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import supabase from "../../utils/supabase";
+import { Backbutton } from "../../components/backButton/Backbutton";
 import { mainContext } from "../../context/UserProvider";
 import { IUser } from "../../interfaces/IUser";
-import supabase from "../../utils/supabase";
+
 
 export default function SignUp() {
   const navigate = useNavigate()
@@ -50,7 +52,7 @@ export default function SignUp() {
           }
         }
       })
-      navigate("/home")
+      navigate("/welcome")
       console.log(data);
       console.log(error);
     } catch (error){
@@ -61,16 +63,18 @@ export default function SignUp() {
 
   return (
     <>
-      <form onSubmit={handleSignUp}>
-        <input type="text" name="name" placeholder="Name" ref={nameRef} required />
-        <input type="text" name="surname" placeholder="Surname" ref={surnameRef} required />
-        <input type="text" name="email" placeholder="Email" ref={emailRef} required />
-        <input type="password" name="password" placeholder="Password" ref={passwordRef} required />
-        <input type="password" name="repeatPassword" placeholder="Repeat Password" ref={repeatPasswordRef} required />
-        <button>Register</button>
+      <Backbutton/>
+      <h1 className="text-center sans-pro-900 f-s-36 dark-green mb-20 mt-32">Create your account </h1>
+      <form className="flex flex-col items-center" onSubmit={handleSignUp}>
+        <input className="input-sign f-s-16 text-center mt-1.5 mb-1.5 " type="text" name="name" placeholder="Name" ref={nameRef} required />
+        <input className="input-sign f-s-16 text-center mt-1.5 mb-1.5 " type="text" name="surname" placeholder="Surname" ref={surnameRef} required />
+        <input className="input-sign f-s-16 text-center mt-1.5 mb-1.5 " type="text" name="email" placeholder="Email" ref={emailRef} required />
+        <input className="input-sign f-s-16 text-center mt-1.5 mb-1.5 " type="password" name="password" placeholder="Password" ref={passwordRef} required />
+        <input className="input-sign f-s-16 text-center mt-1.5 mb-1.5 " type="password" name="repeatPassword" placeholder="Repeat Password" ref={repeatPasswordRef} required />
+        <button className="btn-pink mt-1.5">REGISTER</button>
         {error && <p>{error}</p>}
       </form>
-      <p>Already have an account? <Link to="/signin">Log In</Link></p>
+      <p className="text-center p-5 mt-2 sans-pro-600 grey f-s-16 uppercase">Already have an account? <Link className="pink" to="/signin">Log In</Link></p>
     </>
   )
   
