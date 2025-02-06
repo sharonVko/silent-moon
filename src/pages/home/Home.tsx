@@ -49,7 +49,7 @@ export const Home = () => {
   return (
     <div className=" px-5">
       <Header />
-      <h2 className="text-2xl font-black text-[#4A503D] mb-3.5">Good morning User</h2>
+      <h2 className="text-2xl font-black text-[#4A503D] mb-3.5 mt-12">Good morning User</h2>
       <p className="text-[16px] font-semibold text-[#A1A4B2] mb-5">We hope you have a good day</p>
       <div className="preview__container flex gap-5 mb-14">
         <PreviewCardContainer />
