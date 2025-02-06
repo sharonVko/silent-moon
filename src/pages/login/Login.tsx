@@ -12,7 +12,7 @@ export const Login = () => {
           </div>
       
           <div className="mt-10 mb-10 text-center">
-            <h1 className="p-5">We are what we do</h1>
+            <h1 className="p-5 sans-pro-700">We are what we do</h1>
             <p>Thousand of people are using silent moon  
             for meditation and yoga classes.</p>
           </div>

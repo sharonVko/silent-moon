@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@plugin "daisyui";
 
 
 @font-face {
@@ -93,3 +94,36 @@
     color: #FAF2DA ;
     border-radius: 40px;
 }
+
+/* Fonts */
+
+.sans-pro-600 {
+    font-family: 'Source Sans Pro 1';
+} 
+.sans-pro-700 {
+    font-family: 'Source Sans Pro 2';
+} 
+.sans-pro-900 {
+    font-family: 'Source Sans Pro 3';
+} 
+
+/* Font Sizes */
+.f-s-11{
+    font-size: 11px;
+}
+.f-s-16{
+    font-size: 16px;
+}
+.f-s-18{
+    font-size: 18px;
+}
+.f-s-24{
+    font-size: 24px;
+}
+.f-s-30{
+    font-size: 30px;
+}
+.f-s-36{
+    font-size: 36px;
+}
+
