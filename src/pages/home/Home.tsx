@@ -5,6 +5,7 @@ import { ArticleList } from '../../components/articleList/ArticleList';
 import { PreviewCardContainer } from '../../components/previewCardContainer/PreviewCardContainer';
 import { Header } from '../../components/header/Header';
 import { Search } from '../../components/search/Search';
+import { Footer } from '../../components/footer/Footer';
 
 export interface Yoga {
   id: number;
@@ -46,6 +47,7 @@ export const Home = () => {
   );
 
   return (
+    <> 
     <div className=" px-5">
       <Header />
       <h2 className="text-2xl font-black text-[#4A503D] mb-3.5 mt-12">Good morning User</h2>
@@ -56,5 +58,7 @@ export const Home = () => {
       <Search />
       <ArticleList yoga={filteredYoga} meditation={filteredMeditation} />
     </div>
+      <Footer/>
+    </>
   );
 };

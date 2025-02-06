@@ -15,5 +15,4 @@ export const Welcome = () => {
         GET STARTED
       </Link>
     </div>
-  );
 };
