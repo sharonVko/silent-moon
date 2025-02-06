@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-
+@plugin "daisyui";
 
 @font-face {
     font-family: 'Source Sans Pro 1';
