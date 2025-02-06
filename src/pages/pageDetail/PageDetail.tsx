@@ -6,6 +6,7 @@ import { Backbutton } from '../../components/backButton/Backbutton';
 import { FavouriteButton } from '../../components/favouriteButton.tsx/FavouriteButton';
 import { UserCount } from '../../components/userCount/UserCount';
 import { ItemSong } from '../../components/itemSong/ItemSong';
+import { DownloadButton } from '../../components/downloadButton/DownloadButton';
 
 export const PageDetail = () => {
   const { article, id } = useParams();
@@ -68,6 +69,7 @@ export const PageDetail = () => {
         </div>
       </div>
       <Backbutton />
+      <DownloadButton video={activity?.video_url} image={activity?.image_url} />
       <FavouriteButton article={article} id={id} />
     </div>
   );

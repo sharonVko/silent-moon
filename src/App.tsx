@@ -15,8 +15,6 @@ import SignIn from './pages/signIn/SignIn';
 import SignUp from './pages/signUp/SignUp';
 
 
-
-
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -27,7 +25,6 @@ function App() {
 
         <Route path="/welcome" element={<Welcome />} />
         <Route path="/home" element={<Home />} />
-
 
         <Route path="activity/:type" element={<Activity />} />
 
