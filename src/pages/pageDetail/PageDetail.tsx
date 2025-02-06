@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import supabase from '../../utils/supabase';
 import { Meditation, Yoga } from '../home/Home';
@@ -61,7 +61,7 @@ export const PageDetail = () => {
         <h1 className="text-4xl font-black text-[#4A503D]">{activity?.title}</h1>
         <p className="text-[16px] font-semibold text-[#A1A4B2]">{activity?.level}</p>
         <p className="text-[16px] font-semibold text-[#A1A4B2]">{activity?.description}</p>
-        <UserCount />
+        <UserCount counter={favouriteCounter} />
         <div className="playlist flex flex-col gap-7 mt-5">
           {article === 'meditation' &&
             playlist.length > 0 &&
