@@ -1,3 +1,5 @@
+
+
 import { useEffect, useState } from "react";
 import { Header } from "../../components/header/Header";
 import supabase from "../../utils/supabase";
@@ -46,3 +48,4 @@ const Profile = () => {
 }
 
 export default Profile;
+

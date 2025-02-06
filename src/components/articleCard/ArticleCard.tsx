@@ -1,4 +1,3 @@
-import React from 'react';
 import { Meditation, Yoga } from '../../pages/home/Home';
 import { Link } from 'react-router-dom';
 

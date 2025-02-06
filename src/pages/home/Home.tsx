@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import supabase from '../../utils/supabase';
-import { PreviewCard } from '../../components/previewCard/PreviewCard';
+import { useEffect, useState } from 'react';
+
 import { fetchMeditation, fetchYoga } from '../../api/fetchContent';
 import { ArticleList } from '../../components/articleList/ArticleList';
 import { PreviewCardContainer } from '../../components/previewCardContainer/PreviewCardContainer';

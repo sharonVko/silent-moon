@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Backbutton } from '../../components/backButton/Backbutton';
 import { DownloadButton } from '../../components/downloadButton/DownloadButton';
 import supabase from '../../utils/supabase';

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { fetchMeditation, fetchYoga } from '../../api/fetchContent';
 import { Link } from 'react-router-dom';
 

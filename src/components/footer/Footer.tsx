@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import HomeInactive from '/svg/home_inactive.svg';
 import HomeActive from '/svg/home_active.svg';
 import YogaActive from '/svg/yoga_active.svg';
@@ -11,18 +11,20 @@ import ProfileActive from '/svg/profile_active.svg';
 import ProfileInactive from '/svg/profile_inactive.svg';
 
 export const Footer = () => {
+  const { type } = useParams();
   return (
 
     <footer
       className="flex justify-evenly fixed bottom-0 z-1 white-bg max-w-[414px] w-full
     p-2.5">
       <NavLink to="/activity/yoga">
-        {({ isActive }) => <img src={isActive ? YogaActive : YogaInactive} alt="" className="w-12 h-12" />}
+
+        <img src={type === 'yoga' ? YogaActive : YogaInactive} alt="Yoga" className="w-12 h-12" />
 
       </NavLink>
 
       <NavLink to="/activity/meditation">
-        {({ isActive }) => <img src={isActive ? MeditateActive : MeditateInactive} alt="" className="w-14 h-12" />}
+        <img src={type === 'meditation' ? MeditateActive : MeditateInactive} alt="Meditation" className="w-14 h-12" />
       </NavLink>
 
       <NavLink to="/home">
