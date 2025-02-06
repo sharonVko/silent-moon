@@ -13,7 +13,7 @@ import ProfileInactive from '/svg/profile_inactive.svg'
 export const Footer = () => {
   return (
     <footer className='flex justify-evenly fixed bottom-0 z-1 white-bg w-full
-    p-2.5'>
+    p-2.5' >
       <NavLink to="/activity/:type">
       {({isActive}) => (
         <img src={isActive ? YogaActive : YogaInactive} alt="" className="w-12 h-12"/>
