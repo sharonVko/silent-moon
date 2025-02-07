@@ -20,6 +20,10 @@ export const UserCount = () => {
       if (favData) {
         setFavoriteCounter(favData.length);
       }
+
+      if (favError) {
+        console.error(favError, 'Error beim faverr');
+      }
     };
 
     fetchFav();

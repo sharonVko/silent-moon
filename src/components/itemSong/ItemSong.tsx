@@ -1,8 +1,7 @@
-import React from 'react';
 import { PlayIcon } from '../../assets/svg/PlayIcon';
 import { Link } from 'react-router-dom';
 
-export const ItemSong = ({ id, title, duration }) => {
+export const ItemSong = ({ id, title, duration }: { id: number; title: string; duration: string }) => {
   return (
     <Link to={`/player/${id}`} className="flex gap-5">
       <PlayIcon />

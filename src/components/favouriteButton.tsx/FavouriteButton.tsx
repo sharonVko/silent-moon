@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import supabase from '../../utils/supabase';
 import { useFavouritesContext } from '../../context/FavoriteProvider';
 
-export const FavouriteButton = ({ article, id }) => {
+export const FavouriteButton = ({ article, id }: { article: string; id: string }) => {
   const [userID, setUserId] = useState<string | null>(null);
   const [saved, setSaved] = useState<boolean>(false);
   const { savedFav, setSavedFav } = useFavouritesContext();

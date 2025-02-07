@@ -110,7 +110,7 @@ export const fetchFavMeditation = async () => {
   return meditationData;
 };
 
-export const fetchWithCategory = async (activity, categoryId) => {
+export const fetchWithCategory = async (activity: string, categoryId: number) => {
   if (!activity || !categoryId) {
     console.error('Fehlende Parameter: activity oder categoryId');
     return [];
