@@ -13,8 +13,9 @@ interface MeditationPlayerProps{
   duration: string
 }
 
-export const MeditationPlayer:React.FC<MeditationPlayerProps> = (props) => {
-  const [music, setMusic] = useState('');
+export const MeditationPlayer:React.FC = () => {
+  /* const [music, setMusic] = useState(''); */
+  const [music, setMusic] = useState<Partial<MeditationPlayerProps>>({});
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
   const [currentTime, setCurrentTime] = useState(0);
@@ -31,7 +32,7 @@ export const MeditationPlayer:React.FC<MeditationPlayerProps> = (props) => {
 
       if (data) {
         setMusic(data);
-        console.log(data);
+        console.log(data,error);
       }
     };
 
@@ -78,12 +79,12 @@ export const MeditationPlayer:React.FC<MeditationPlayerProps> = (props) => {
         <div className="absolute top-0 left-0 right-0 p-4 flex justify-between">
           <Backbutton />
           <div className="flex gap-4">
-            <FavouriteButton />
+            <FavouriteButton article={music} id={id}/>
             <DownloadButton musik={music?.track_url} />
           </div>
         </div>
         <div className='audio-info text-center py-24 '>
-          <p className='text-[#4A503D] f-s-36 sans-pro-900'>{music.title ?? ""}</p>
+          <p className='text-[#4A503D] f-s-36 sans-pro-900'>{music.title}</p>
           <p className='text-[#A0A3B1] f-s-14 sans-pro-600'>{music.artist}</p>
         </div>
         <div className="audioplayer flex flex-col items-center bg-transparent p-4 rounded z-20 max-w-lg mx-auto ">
