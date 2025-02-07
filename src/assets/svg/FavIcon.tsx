@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const FavIcon = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="21" height="19" viewBox="0 0 21 19" fill="none">

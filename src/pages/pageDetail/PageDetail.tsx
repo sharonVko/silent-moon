@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import supabase from '../../utils/supabase';
 import { Meditation, Yoga } from '../home/Home';
@@ -7,26 +7,39 @@ import { FavouriteButton } from '../../components/favouriteButton.tsx/FavouriteB
 import { UserCount } from '../../components/userCount/UserCount';
 import { ItemSong } from '../../components/itemSong/ItemSong';
 import { DownloadButton } from '../../components/downloadButton/DownloadButton';
+interface Track {
+  id: number;
+  title: string | null;
+  artist: string | null;
+  duration: string | null;
+  track_url: string | null;
+  playlist_id: string | null;
+  created_at: string;
+}
 
 export const PageDetail = () => {
-  const { article, id } = useParams();
+  const { article, id } = useParams<string>();
   const [activity, setActivity] = useState<Yoga | Meditation | null>(null);
-  const [favouriteCounter, setFavoriteCounter] = useState<number>(0);
-  const [playlist, setPlaylist] = useState([]);
+
+  const [playlist, setPlaylist] = useState<Track[]>([]);
+  const [loading, setLoading] = useState<boolean>(true); // Ladezustand
+  const [error, setError] = useState<string | null>(null); // Fehlerzustand
 
   useEffect(() => {
     const fetchSingleArticle = async () => {
       try {
-        const { data, error } = await supabase.from(article).select('*').eq('id', id).single();
+        setLoading(true); // Ladezustand aktivieren
+        setError(null); // Fehlerzustand zurücksetzen
+        const relation = article || '';
+        const { data, error } = await supabase.from(relation).select('*').eq('id', id).single();
         if (error) throw error;
         setActivity(data);
 
-        const { data: favData, error: favError } = await supabase
-          .from(article === 'yoga' ? 'user_favorites_yoga' : 'user_favorites_meditation')
-          .select('*')
-          .eq('item_id', id);
-        if (favError) throw favError;
-        setFavoriteCounter(favData.length);
+        // const { data: favData, error: favError } = await supabase
+        //   .from(article === 'yoga' ? 'user_favorites_yoga' : 'user_favorites_meditation')
+        //   .select('*')
+        //   .eq('item_id', id);
+        // if (favError) throw favError;
 
         if (article === 'meditation' && data?.playlist_id) {
           const { data: tracksData, error: trackError } = await supabase
@@ -37,24 +50,31 @@ export const PageDetail = () => {
           setPlaylist(tracksData);
         }
       } catch (err) {
-        console.error('Error fetch playlist', err);
+        console.error('Error fetching data:', err);
+        setError('Something went wrong while fetching the data. Please try again later.');
+      } finally {
+        setLoading(false); // Ladezustand deaktivieren
       }
     };
 
     fetchSingleArticle();
   }, [id, article]);
 
-  useEffect(() => {
-    console.log('update playlist:', playlist);
-  }, [playlist]);
+  if (loading) {
+    return <div>Loading...</div>; // Ladeanzeige
+  }
+
+  if (error) {
+    return <div>{error}</div>; // Fehleranzeige
+  }
 
   return (
     <div className="relative">
-      <div className={`${article === 'yoga' ? 'h-[500px]' : 'h-[289px]'} `}>
+      <div className={`${article === 'yoga' ? 'h-[500px]' : 'h-[289px]'}`}>
         {article === 'yoga' ? (
           <video src={activity?.video_url} autoPlay muted className="w-full h-full object-cover z-10"></video>
         ) : (
-          <img src={activity?.image_url} alt="" />
+          <img src={activity?.image_url} alt="Activity" />
         )}
       </div>
       <div className="px-3 flex flex-col gap-3.5 mt-10">
@@ -65,12 +85,14 @@ export const PageDetail = () => {
         <div className="playlist flex flex-col gap-7 mt-5">
           {article === 'meditation' &&
             playlist.length > 0 &&
-            playlist.map(track => <ItemSong title={track.title} id={track.id} duration={track.duration} />)}
+            playlist.map(track => (
+              <ItemSong key={track.id} title={track.title ?? ''} id={track.id} duration={track.duration ?? ''} />
+            ))}
         </div>
       </div>
       <Backbutton />
       <DownloadButton video={activity?.video_url} image={activity?.image_url} />
-      <FavouriteButton article={article} id={id} />
+      <FavouriteButton article={article ?? ''} id={id ?? ''} />
     </div>
   );
 };

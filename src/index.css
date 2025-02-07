@@ -2,139 +2,157 @@
 @plugin "daisyui";
 
 @font-face {
-    font-family: 'Source Sans Pro 1';
-    src: url('/src/fonts/sourcesansprosemibold.ttf') format('truetype');
-    font-weight: 600;
-    font-style: normal;
-    line-height: 120%;
+  font-family: 'Source Sans Pro 1';
+  src: url('/src/fonts/sourcesansprosemibold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  line-height: 120%;
 }
 
 @font-face {
-    font-family: 'Source Sans Pro 2';
-    src: url('/src/fonts/sourcesansprobold.ttf') format('truetype');
-    font-weight: 700;
-    font-style: normal;
-    line-height: 120%;
+  font-family: 'Source Sans Pro 2';
+  src: url('/src/fonts/sourcesansprobold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  line-height: 120%;
 }
 
 @font-face {
-    font-family: 'Source Sans Pro 3';
-    src: url('/src/fonts/sourcesansproblack.ttf') format('truetype');
-    font-weight: 900;
-    font-style: normal;
-    line-height: 120%;
+  font-family: 'Source Sans Pro 3';
+  src: url('/src/fonts/sourcesansproblack.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  line-height: 120%;
 }
 
 /* Colors */
 
-.cream{
-    color: #FAF2DA
+.cream {
+  color: #faf2da;
 }
 
 .light-green {
-    color: #8E9775
+  color: #8e9775;
 }
 
 .dark-green {
-    color: #4A503D;
+  color: #4a503d;
 }
 
-.pink{
-    color: #E28F83;
+.pink {
+  color: #e28f83;
 }
 
 .light-cream {
-    color: #FEFCF8;
+  color: #fefcf8;
 }
 
-.grey{
-    color: #A1A4B2;
+.grey {
+  color: #a1a4b2;
 }
 
-.white{
-    color: #FFFFFF;
+.white {
+  color: #ffffff;
 }
 
 /* Backgrounds */
 
 .cream-bg {
-    background-color: #FAF2DA
+  background-color: #faf2da;
 }
 
 .light-green-bg {
-    background-color: #8E9775
+  background-color: #8e9775;
 }
 
 .dark-green-bg {
-    background-color: #4A503D;
+  background-color: #4a503d;
 }
 
 .pink-bg {
-    background-color: #E28F83;
+  background-color: #e28f83;
 }
 
 .light-cream-bg {
-    background-color: #FEFCF8;
+  background-color: #fefcf8;
 }
 
 .grey-bg {
-    background-color: #A1A4B2;
+  background-color: #a1a4b2;
 }
 
 .white-bg {
-    background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
 /* button style pink*/
 
-.btn-pink{
-    background-color: #E28F83;
-    color: #ffffff ;
-    border-radius: 40px;
-    width: 80vw;
-    height: 60px;
+.btn-pink {
+  background-color: #e28f83;
+  color: #ffffff;
+  border-radius: 40px;
+  width: 80vw;
+  height: 60px;
 }
 
-.input-sign{
-    background-color: #ffffff;
-    border: 1px solid #E28F83;
-    color: #A1A4B2 ;
-    border-radius: 40px;
-    width: 80vw;
-    height: 60px;
+.input-sign {
+  background-color: #ffffff;
+  border: 1px solid #e28f83;
+  color: #a1a4b2;
+  border-radius: 40px;
+  width: 80vw;
+  height: 60px;
 }
 
 /* Fonts */
 
 .sans-pro-600 {
-    font-family: 'Source Sans Pro 1';
-} 
+  font-family: 'Source Sans Pro 1';
+}
 .sans-pro-700 {
-    font-family: 'Source Sans Pro 2';
-} 
+  font-family: 'Source Sans Pro 2';
+}
 .sans-pro-900 {
-    font-family: 'Source Sans Pro 3';
-} 
+  font-family: 'Source Sans Pro 3';
+}
 
 /* Font Sizes */
-.f-s-11{
-    font-size: 11px;
+.f-s-11 {
+  font-size: 11px;
 }
-.f-s-14{
-    font-size: 14px;
+.f-s-14 {
+  font-size: 14px;
 }
-.f-s-16{
-    font-size: 16px;
+.f-s-16 {
+  font-size: 16px;
 }
-.f-s-18{
-    font-size: 18px;
+.f-s-18 {
+  font-size: 18px;
 }
-.f-s-24{
-    font-size: 24px;
+.f-s-24 {
+  font-size: 24px;
 }
-.f-s-30{
-    font-size: 30px;
+.f-s-30 {
+  font-size: 30px;
 }
+.f-s-36 {
+  font-size: 36px;
+}
+
+.active__bar {
+  background: #8e9775;
+}
+
+.card-large {
+  width: 177px;
+  height: 210px;
+}
+
+.card-small {
+  width: 177px;
+  height: 167px;
+}
+
 .f-s-36{
     font-size: 36px;
 }
@@ -153,3 +171,4 @@
   }
 
   
+

@@ -1,9 +1,4 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
-
 export const DownloadButton = ({ video, image, musik }: { video?: string; image?: string; musik?: string }) => {
-  const { pathname } = useLocation();
-
   const handleDownload = async () => {
     const fileUrl = video || image || musik;
 

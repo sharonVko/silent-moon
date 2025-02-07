@@ -9,7 +9,19 @@ interface IPreviewCardProps {
   video_url?: string;
 }
 
-export const PreviewCard: React.FC<IPreviewCardProps> = ({ title, level, id, image_url, video_url }) => {
+export const PreviewCard: React.FC<IPreviewCardProps> = ({
+  title,
+  level,
+  id,
+  image_url,
+  video_url,
+}: {
+  title: string;
+  level: string;
+  id: number;
+  image_url?: string;
+  video_url?: string;
+}) => {
   return (
     <div className="rounded-2xl  h-[210px] w-[177px] overflow-hidden bg-gray-200 flex items-center justify-center relative">
       <div className="absolute w-full h-full">
@@ -31,7 +43,7 @@ export const PreviewCard: React.FC<IPreviewCardProps> = ({ title, level, id, ima
             className={`rounded-3xl w-[70px] h-[35px] flex items-center justify-center ${
               !image_url ? 'bg-[#FFECCC]' : 'bg-[#4A503D]'
             }`}>
-            <Link className="" to={`/activity/${id}`}>
+            <Link className="" to={`/${video_url ? 'yoga' : 'meditation'}/${id}`}>
               START
             </Link>
           </div>

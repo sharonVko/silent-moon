@@ -1,24 +1,20 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import supabase from "../../utils/supabase";
 import { Backbutton } from "../../components/backButton/Backbutton";
-import { mainContext } from "../../context/UserProvider";
-import { IUser } from "../../interfaces/IUser";
+import { useUserContext } from "../../context/UserProvider";
 
 
 export default function SignUp() {
   const navigate = useNavigate()
-
-  const {user, setUser} = useContext(mainContext) as {user: IUser, setUser: (user:IUser) => void}
-
   const emailRef = useRef<HTMLInputElement>(null)
   const passwordRef = useRef<HTMLInputElement>(null)
   const nameRef = useRef<HTMLInputElement>(null)
   const surnameRef = useRef<HTMLInputElement>(null)
-
-  // evntl geht das weg - up to you guys
   const repeatPasswordRef = useRef<HTMLInputElement>(null)
   const [error, setError] = useState("")
+
+  const { setUser } = useUserContext()
 
   const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -28,7 +24,6 @@ export default function SignUp() {
     const password = passwordRef.current?.value || ""
     const name = nameRef.current?.value || ""
     const surname = surnameRef.current?.value || ""
-
     const repeatPassword = repeatPasswordRef.current?.value || ""
 
     if(password !== repeatPassword) {
@@ -36,13 +31,13 @@ export default function SignUp() {
       return;
     }
 
-    if(user){
-      setUser({...user, email: email, password: password, name: name, surname: surname})
-    }
-    console.log(user);
+    // if(user){
+    //   setUser({...user, email: email, password: password, name: name, surname: surname})
+    // }
+    // console.log(user);
 
     try{
-      const {data, error} = await supabase.auth.signUp({
+      const { data, error } = await supabase.auth.signUp({
         email: email,
         password: password,
         options:{
@@ -52,11 +47,14 @@ export default function SignUp() {
           }
         }
       })
-      navigate("/welcome")
-      console.log(data);
-      console.log(error);
+      if(error) throw error
+      if(data.user){
+        setUser(data.user)
+        navigate("/welcome")
+      }
     } catch (error){
       console.error(error);
+      setError("An error occurred during sign up")
       
     }
   }

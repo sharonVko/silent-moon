@@ -2,43 +2,65 @@ import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import supabase from "../../utils/supabase";
 import { Backbutton } from "../../components/backButton/Backbutton";
+import { useUserContext } from "../../context/UserProvider";
 
 export default function SignIn() {
   const navigate = useNavigate();
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
-  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [errorMsg, setErrorMsg] = useState<string | undefined>("");
+
+  const {setUser} = useUserContext()
 
   const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setErrorMsg(null); // Reset error on new attempt
+    e.preventDefault()
+    setErrorMsg("")
 
     const email = emailRef.current?.value || "";
     const password = passwordRef.current?.value || "";
 
-    try {
-      const { error } = await supabase.auth.signInWithPassword({
-        email: email,
-        password: password
-      });
+    const result = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password,
+    })
 
-      if (error) {
-        setErrorMsg(error.message);
-        return;
-      }
-
-      navigate("/welcome");
-
-      const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
-      if (sessionError) console.error("Session fetch error:", sessionError);
-      else console.log("Session data:", sessionData);
-
-    } catch (err) {
-      console.error("Unexpected error:", err);
-      setErrorMsg("An unexpected error occurred. Please try again.");
+    if(result.data.user) {
+      setUser(result.data.user)
+      navigate("/welcome")
+    } else {
+      setErrorMsg(result.error?.message)
     }
-  };
+  }
 
+  // const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   setErrorMsg(null); // Reset error on new attempt
+
+  //   const email = emailRef.current?.value || "";
+  //   const password = passwordRef.current?.value || "";
+
+  //   try {
+  //     const { error } = await supabase.auth.signInWithPassword({
+  //       email: email,
+  //       password: password
+  //     });
+
+  //     if (error) {
+  //       setErrorMsg(error.message);
+  //       return;
+  //     }
+
+  //     navigate("/welcome");
+
+  //     const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
+  //     if (sessionError) console.error("Session fetch error:", sessionError);
+  //     else console.log("Session data:", sessionData);
+
+  //   } catch (err) {
+  //     console.error("Unexpected error:", err);
+  //     setErrorMsg("An unexpected error occurred. Please try again.");
+  //   }
+  // }
 
   return (
     <>

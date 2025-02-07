@@ -1,5 +1,4 @@
-import React from 'react';
-import { useLocation, useNavigate,  } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export const Backbutton = () => {
   const navigate = useNavigate();
@@ -8,15 +7,13 @@ export const Backbutton = () => {
     navigate(-1);
   };
 
-  const {pathname} = useLocation()
+  const { pathname } = useLocation();
   const backBtn = `absolute top-1.5 left-2 z-20 rounded-4xl w-[55px] h-[55px] flex justify-center items-center ${
-  (pathname === '/signin' || pathname === '/signup') ? 'bg-{#ffffff}' : 'bg-[#FAF2DA]'
-}`;
+    pathname === '/signin' || pathname === '/signup' ? 'bg-{#ffffff}' : 'bg-[#FAF2DA]'
+  }`;
 
   return (
-    <button
-      className={backBtn}
-      onClick={handleClick}>
+    <button className={backBtn} onClick={handleClick}>
       <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
           d="M18.8491 10.5L3.57289 10.5L9.98418 17.0889L8.60878 18.5L0.378077 10.0667C0.0748413 9.75555 0.0748413 9.25555 0.378077 8.94444L8.60879 0.499999L9.98418 1.91111L3.57289 8.5L18.8491 8.5L18.8491 9.5L18.8491 10.5Z"
