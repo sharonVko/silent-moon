@@ -54,7 +54,7 @@ export const CategoriesBar = ({ setActivity }: CategoriesBarProps) => {
   ];
 
   return (
-    <div>
+    <div className="mb-12">
       <Swiper slidesPerView={5} spaceBetween={20} freeMode modules={[FreeMode, Pagination]} className="mySwiper">
         <SwiperSlide>
           <div className="text-center" onClick={addAllActivity}>
