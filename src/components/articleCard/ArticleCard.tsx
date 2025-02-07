@@ -1,4 +1,3 @@
-import React from 'react';
 import { Meditation, Yoga } from '../../pages/home/Home';
 import { Link } from 'react-router-dom';
 
@@ -8,13 +7,7 @@ export const ArticleCard = ({ yogaSingle, meditationSingle }: { yogaSingle?: Yog
       <Link to={`/${yogaSingle ? 'yoga' : 'meditation'}/${yogaSingle?.id || meditationSingle?.id}`}>
         <div className="w-[162px] h-[113px]">
           {yogaSingle ? (
-            <video
-              src={yogaSingle.video_url}
-              alt={yogaSingle.title}
-              muted
-              loop
-              className="w-full h-full object-cover object-center"
-            />
+            <video src={yogaSingle.video_url} muted loop className="w-full h-full object-cover object-center" />
           ) : (
             <img
               src={meditationSingle?.image_url}

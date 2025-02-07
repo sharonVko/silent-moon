@@ -138,3 +138,17 @@
 .f-s-36 {
   font-size: 36px;
 }
+
+.active__bar {
+  background: #8e9775;
+}
+
+.card-large {
+  width: 177px;
+  height: 210px;
+}
+
+.card-small {
+  width: 177px;
+  height: 167px;
+}

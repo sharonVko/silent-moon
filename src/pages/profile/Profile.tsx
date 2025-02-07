@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { Header } from "../../components/header/Header";
 import supabase from "../../utils/supabase";
@@ -11,6 +12,7 @@ import UserAvatar from "../../components/userAvatar/UserAvatar";
 
 
 const Profile = () => {
+
 
   const { user } = useUserContext()
   const [favouriteYoga, setFavouriteYoga] = useState<Yoga[]>([])
@@ -42,12 +44,14 @@ const Profile = () => {
     fetchData()
   }, [user])
 
+
   console.log(user);
   console.log(favouriteMeditation);
   console.log(favouriteYoga);
 
-  return ( 
+  return (
     <>
+
       <Header/>
       <div>
         <UserAvatar/>
@@ -55,8 +59,9 @@ const Profile = () => {
       <Search/>
       <ArticleList yoga={favouriteYoga} meditation={favouriteMeditation}/>
       <Footer/>
+
     </>
   );
-}
+};
 
 export default Profile;
