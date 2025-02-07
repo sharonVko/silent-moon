@@ -101,14 +101,14 @@ export const MeditationPlayer:React.FC = () => {
       <div className="relative h-screen flex flex-col items-center justify-center bg-[url(/img/player_meditation.png)] bg-cover bg-center">
         <div className="absolute top-4 left-0 right-2 p-4 flex justify-between">
           <Backbutton />
-          <div className="flex gap-4">
+          <div className="flex gap-6">
             <FavouriteButton article={music} id={id}/>
             <DownloadButton musik={music?.track_url} />
           </div>
         </div>
         <div className='audio-info text-center pb-20 pt-48'>
           <p className='text-[#4A503D] f-s-36 sans-pro-900'>{music.title}</p>
-          <p className='text-[#A0A3B1] f-s-14 sans-pro-600'>{music.playlist_title}</p>
+          <p className='text-[#A0A3B1] f-s-14 sans-pro-600 tracking-wide'>{music.playlist_title?.toUpperCase()}</p>
         </div>
         <div className="audioplayer flex flex-col items-center bg-transparent p-4 rounded z-20 max-w-lg mx-auto ">
           <div className="flex items-center gap-10 pb-4">
