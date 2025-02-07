@@ -16,74 +16,83 @@ import {
   fetchWithCategory,
   fetchYoga,
 } from '../../api/fetchContent';
+import { Activity } from '../../pages/activity/Activity';
+import { useState } from 'react';
 
-export const CategoriesBar = ({ setActivity }) => {
-  const { type } = useParams();
+interface CategoriesBarProps {
+  setActivity: React.Dispatch<React.SetStateAction<Activity[] | null>>;
+}
+
+export const CategoriesBar = ({ setActivity }: CategoriesBarProps) => {
+  const { type } = useParams<{ type?: string }>();
+  const [activeCategory, setActiveCategory] = useState<string>('all');
 
   const addAllActivity = async () => {
-    if (type === 'yoga') {
-      setActivity(await fetchYoga());
-    } else {
-      setActivity(await fetchMeditation());
-    }
+    if (!type) return;
+    const activity: Activity[] = (type === 'yoga' ? await fetchYoga() : await fetchMeditation()) ?? [];
+    setActivity(activity);
+    setActiveCategory('all');
   };
 
   const fetchFav = async () => {
-    if (type === 'yoga') {
-      setActivity(await fetchFavYoga());
-    } else {
-      setActivity(await fetchFavMeditation());
-    }
+    if (!type) return;
+    const favorites = type === 'yoga' ? await fetchFavYoga() : await fetchFavMeditation();
+    setActivity(favorites);
+    setActiveCategory('favorites');
   };
 
   const fetchCategory = async (categoryId: number) => {
+    if (!type) return;
     setActivity(await fetchWithCategory(type, categoryId));
+    setActiveCategory(`category-${categoryId}`);
   };
+
+  const categoryItems = [
+    { id: 3, icon: <AnxiousIcon />, label: 'Anxious' },
+    { id: 4, icon: <SleepIcon />, label: 'Sleep' },
+    { id: 5, icon: <KidsIcon />, label: 'Kids' },
+  ];
 
   return (
     <div>
-      <Swiper slidesPerView={5} spaceBetween={20} freeMode={true} modules={[FreeMode, Pagination]} className="mySwiper">
+      <Swiper slidesPerView={5} spaceBetween={20} freeMode modules={[FreeMode, Pagination]} className="mySwiper">
         <SwiperSlide>
           <div className="text-center" onClick={addAllActivity}>
-            <div className="w-[65px] h-[65px] rounded-3xl  bg-[#A1A4B2] active__bar flex items-center justify-center">
+            <div
+              className={`w-[65px] h-[65px] rounded-3xl flex items-center justify-center ${
+                activeCategory === 'all' ? 'active__bar bg-[#6C63FF]' : 'bg-[#A1A4B2]'
+              }`}>
               <AllIcon />
             </div>
             <p>All</p>
           </div>
         </SwiperSlide>
+
         <SwiperSlide>
           <div className="text-center" onClick={fetchFav}>
-            <div className="w-[65px] h-[65px] rounded-3xl  bg-[#A1A4B2] flex items-center justify-center">
+            <div
+              className={`w-[65px] h-[65px] rounded-3xl flex items-center justify-center ${
+                activeCategory === 'favorites' ? 'active__bar bg-[#6C63FF]' : 'bg-[#A1A4B2]'
+              }`}>
               <HeartBarIcon />
             </div>
             <p>Favorites</p>
           </div>
         </SwiperSlide>
-        <SwiperSlide>
-          <div className="text-center" onClick={() => fetchCategory(3)}>
-            <div className="w-[65px] h-[65px] rounded-3xl  bg-[#A1A4B2] flex items-center justify-center">
-              <AnxiousIcon />
+
+        {categoryItems.map(({ id, icon, label }) => (
+          <SwiperSlide key={id}>
+            <div className="text-center" onClick={() => fetchCategory(id)}>
+              <div
+                className={`w-[65px] h-[65px] rounded-3xl flex items-center justify-center ${
+                  activeCategory === `category-${id}` ? 'active__bar bg-[#6C63FF]' : 'bg-[#A1A4B2]'
+                }`}>
+                {icon}
+              </div>
+              <p>{label}</p>
             </div>
-            <img src="" alt="" />
-            <p>Anxious</p>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="text-center" onClick={() => fetchCategory(4)}>
-            <div className="w-[65px] h-[65px] rounded-3xl bg-[#A1A4B2] flex items-center justify-center">
-              <SleepIcon />
-            </div>
-            <p>Sleep</p>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className=" text-center" onClick={() => fetchCategory(5)}>
-            <div className="w-[65px] h-[65px] rounded-3xl bg-[#A1A4B2]  flex items-center justify-center">
-              <KidsIcon />
-            </div>
-            <p>Kids</p>
-          </div>
-        </SwiperSlide>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

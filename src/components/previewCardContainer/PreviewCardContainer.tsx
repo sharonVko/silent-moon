@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { PreviewCard } from '../previewCard/PreviewCard';
 import { Meditation, Yoga } from '../../pages/home/Home';
 import { fetchMeditation, fetchYoga } from '../../api/fetchContent';
 
 export const PreviewCardContainer = () => {
-  const [previewCardYoga, setPreviewCardYoga] = useState<Yoga>();
-  const [previewCardMeditation, setPreviewCardMeditation] = useState<Meditation>();
+  const [previewCardYoga, setPreviewCardYoga] = useState<Yoga | null>(null);
+  const [previewCardMeditation, setPreviewCardMeditation] = useState<Meditation | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,18 +28,22 @@ export const PreviewCardContainer = () => {
   return (
     <>
       {' '}
-      <PreviewCard
-        title={previewCardYoga?.title}
-        level={previewCardYoga?.level}
-        id={previewCardYoga?.id}
-        video_url={previewCardYoga?.video_url}
-      />
-      <PreviewCard
-        title={previewCardMeditation?.title}
-        level={previewCardMeditation?.level}
-        id={previewCardMeditation?.id}
-        image_url={previewCardMeditation?.image_url}
-      />
+      {previewCardYoga && (
+        <PreviewCard
+          title={previewCardYoga.title}
+          level={previewCardYoga.level}
+          id={previewCardYoga.id}
+          video_url={previewCardYoga.video_url}
+        />
+      )}
+      {previewCardMeditation && (
+        <PreviewCard
+          title={previewCardMeditation.title}
+          level={previewCardMeditation.level}
+          id={previewCardMeditation.id}
+          image_url={previewCardMeditation.image_url}
+        />
+      )}
     </>
   );
 };

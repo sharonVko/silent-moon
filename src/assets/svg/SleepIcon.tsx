@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const SleepIcon = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="27" height="23" viewBox="0 0 27 23" fill="none">
