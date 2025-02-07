@@ -13,31 +13,30 @@ import ProfileInactive from '/svg/profile_inactive.svg';
 export const Footer = () => {
   const { type } = useParams();
   return (
-
-    <footer
-      className="flex justify-evenly fixed bottom-0 z-1 white-bg max-w-[414px] w-full
+    <footer className="pt-20">
+      <div
+        className="flex justify-evenly fixed bottom-0 z-1 white-bg max-w-[414px] w-full
     p-2.5">
-      <NavLink to="/activity/yoga">
+        <NavLink to="/activity/yoga">
+          <img src={type === 'yoga' ? YogaActive : YogaInactive} alt="Yoga" className="w-12 h-12" />
+        </NavLink>
 
-        <img src={type === 'yoga' ? YogaActive : YogaInactive} alt="Yoga" className="w-12 h-12" />
+        <NavLink to="/activity/meditation">
+          <img src={type === 'meditation' ? MeditateActive : MeditateInactive} alt="Meditation" className="w-14 h-12" />
+        </NavLink>
 
-      </NavLink>
+        <NavLink to="/home">
+          {({ isActive }) => <img src={isActive ? HomeActive : HomeInactive} alt="" className="w-12 h-12" />}
+        </NavLink>
 
-      <NavLink to="/activity/meditation">
-        <img src={type === 'meditation' ? MeditateActive : MeditateInactive} alt="Meditation" className="w-14 h-12" />
-      </NavLink>
+        <NavLink to="/music">
+          {({ isActive }) => <img src={isActive ? MusicActive : MusicInactive} alt="" className="w-12 h-12" />}
+        </NavLink>
 
-      <NavLink to="/home">
-        {({ isActive }) => <img src={isActive ? HomeActive : HomeInactive} alt="" className="w-12 h-12" />}
-      </NavLink>
-
-      <NavLink to="/music">
-        {({ isActive }) => <img src={isActive ? MusicActive : MusicInactive} alt="" className="w-12 h-12" />}
-      </NavLink>
-
-      <NavLink to="/profile">
-        {({ isActive }) => <img src={isActive ? ProfileActive : ProfileInactive} alt="" className="w-12 h-12" />}
-      </NavLink>
+        <NavLink to="/profile">
+          {({ isActive }) => <img src={isActive ? ProfileActive : ProfileInactive} alt="" className="w-12 h-12" />}
+        </NavLink>
+      </div>
     </footer>
   );
 };
