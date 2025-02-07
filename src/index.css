@@ -138,3 +138,18 @@
 .f-s-36{
     font-size: 36px;
 }
+
+/* meditation player test */
+.range-input {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 2px; /* range line */
+    /* background: #a0a2b17f; */
+    background: #A0A3B1;
+    border-radius: 5px;
+    outline: none;
+    padding: 0;
+   
+  }
+
+  
