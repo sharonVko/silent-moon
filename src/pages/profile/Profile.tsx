@@ -8,60 +8,80 @@ import { Search } from "../../components/search/Search";
 import { Meditation, Yoga } from "../home/Home";
 import { ArticleList } from "../../components/articleList/ArticleList";
 import UserAvatar from "../../components/userAvatar/UserAvatar";
+import { Link } from "react-router-dom";
+import Reminder from '/svg/reminder_icon.svg'
 
+type YogaFavoriteResponse = {
+  item_id: number;
+  yoga: Yoga;
+}
 
+type MeditationFavoriteResponse = {
+  item_id: number;
+  meditation: Meditation;
+}
 
 const Profile = () => {
-
-
-  const { user } = useUserContext()
-  const [favouriteYoga, setFavouriteYoga] = useState<Yoga[]>([])
-  const [favouriteMeditation, setFavouriteMeditation] = useState<Meditation[]>([])
+  const { user } = useUserContext();
+  const [favouriteYoga, setFavouriteYoga] = useState<Yoga[]>([]);
+  const [favouriteMeditation, setFavouriteMeditation] = useState<Meditation[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      if(user?.id){
-        const {data: yogaResult, error: yogaError} = await 
-          supabase
+      if (user?.id) {
+        // Get favorite yoga items with full yoga data
+        const { data: yogaFavorites } = await supabase
           .from('user_favorites_yoga')
-          .select('*')
-          .eq('user_id', user.id);
-          
-        const {data: mediResult, error: mediError} = await
-          supabase
+          .select(`
+            item_id,
+            yoga:yoga(*)
+          `)
+          .eq('user_id', user.id) as { data: YogaFavoriteResponse[] | null };
+
+
+        // Get favorite meditation items with full meditation data  
+        const { data: meditationFavorites } = await supabase
           .from('user_favorites_meditation')
-          .select('*')
-          .eq('user_id', user.id)
-        
-        if(yogaResult) setFavouriteYoga(yogaResult)
-          else console.error(yogaError);
+          .select(`
+            item_id,
+            meditation:meditation(*)
+          `)
+          .eq('user_id', user.id) as { data: MeditationFavoriteResponse[] | null };
 
-        if(mediResult) setFavouriteMeditation(mediResult)
-          else console.error(mediError);
+        // Extract the full yoga/meditation objects from the joined results
+        const yogaData = yogaFavorites?.map(fav => fav.yoga) || [];
+        const meditationData = meditationFavorites?.map(fav => fav.meditation) || [];
+
+        setFavouriteYoga(yogaData);
+        setFavouriteMeditation(meditationData);
       }
-    }
+    };
 
-    fetchData()
-  }, [user])
-
-
-  console.log(user);
-  console.log(favouriteMeditation);
-  console.log(favouriteYoga);
+    fetchData();
+  }, [user]);
 
   return (
     <>
-
-      <Header/>
+      <Header />
       <div>
-        <UserAvatar/>
+        <UserAvatar />
+        <Link to="/profile/reminders">
+          <img src={Reminder} alt="" />
+          <p>Remind Me!</p>
+        </Link>
+        
       </div>
-      <Search/>
-      <ArticleList yoga={favouriteYoga} meditation={favouriteMeditation}/>
-      <Footer/>
-
+      <Search />
+      {(favouriteYoga.length > 0 || favouriteMeditation.length > 0) ? (
+      <ArticleList yoga={favouriteYoga} meditation={favouriteMeditation} /> ) : (
+        <div>
+          <h1>No favorites yet</h1>
+        </div>
+      )}
+      <Footer />
     </>
   );
 };
+
 
 export default Profile;
