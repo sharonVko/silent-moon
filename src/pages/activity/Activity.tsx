@@ -87,7 +87,7 @@ export const ActivityPage = () => {
           )}
         </Masonry>
         {activity && visibleActivities && visibleActivities.length < activity.length && (
-          <div className="font-black text-3xl cursor-pointer text-center" onClick={loadContent}>
+          <div className="font-black dark-green text-3xl cursor-pointer text-center" onClick={loadContent}>
             ...
           </div>
         )}

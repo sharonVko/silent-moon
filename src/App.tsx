@@ -12,6 +12,7 @@ import { ActivityPage } from './pages/activity/Activity';
 import Profile from './pages/profile/Profile';
 import SignIn from './pages/signIn/SignIn';
 import SignUp from './pages/signUp/SignUp';
+import { ProtectedRoute } from './RootLayout/ProtectedRoute';
 
 function App() {
   const router = createBrowserRouter(
@@ -21,7 +22,14 @@ function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
 
-        <Route path="/welcome" element={<Welcome />} />
+        <Route
+          path="/welcome"
+          element={
+            <ProtectedRoute>
+              <Welcome />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/home" element={<Home />} />
 
         <Route path="activity/:type" element={<ActivityPage />} />
