@@ -6,8 +6,8 @@ import { fetchMeditation, fetchYoga } from '../../api/fetchContent';
 import { Search } from '../../components/search/Search';
 
 import ActivityCard from '../../components/activityCard/ActivityCard';
-
 import Masonry from '@mui/lab/Masonry';
+
 import { Meditation, Yoga } from '../home/Home';
 import { Footer } from '../../components/footer/Footer';
 import { MiniPlayerBar } from '../../components/miniPlayerBar/MiniPlayerBar';
