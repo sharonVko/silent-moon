@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Header } from '../../components/header/Header';
 import { CategoriesBar } from '../../components/categoriesBar/CategoriesBar';
 import { fetchMeditation, fetchYoga } from '../../api/fetchContent';
@@ -10,14 +10,15 @@ import ActivityCard from '../../components/activityCard/ActivityCard';
 import Masonry from '@mui/lab/Masonry';
 import { Meditation, Yoga } from '../home/Home';
 import { Footer } from '../../components/footer/Footer';
+import { MiniPlayerBar } from '../../components/miniPlayerBar/MiniPlayerBar';
 
 // const ActivityCard = lazy(() => import('../../components/activityCard/ActivityCard'));
 
 export type Activity = Yoga | Meditation;
 
 export const ActivityPage = () => {
-  const [activity, setActivity] = useState<Activity[] | null>(null); // Changed from Activity | null to Activity[] | null
-  const [visibleActivities, setVisibleActivities] = useState(activity?.slice(0, 4));
+  const [activity, setActivity] = useState<Activity[] | null>([]); // Changed from Activity | null to Activity[] | null
+  const [visibleActivities, setVisibleActivities] = useState<Activity[] | null>(null);
 
   const { type } = useParams();
 
@@ -25,11 +26,27 @@ export const ActivityPage = () => {
     const fetchBase = async () => {
       const fetchData = type === 'yoga' ? fetchYoga : fetchMeditation;
       const data = (await fetchData()) ?? [];
-      setActivity(data); // Ensure data is an array, or handle accordingly if it might not be
+      setActivity(data);
+      setVisibleActivities(data.slice(0, 4));
     };
 
     fetchBase();
   }, [type]);
+
+  useEffect(() => {
+    if (activity && activity.length > 0) {
+      return setVisibleActivities(activity.slice(0, 4));
+    }
+
+    setVisibleActivities(null);
+  }, [activity]);
+
+  const loadContent = () => {
+    if (activity && visibleActivities) {
+      const newVisibleActivities = activity.slice(visibleActivities.length, visibleActivities.length + 4);
+      setVisibleActivities(prev => [...(prev || []), ...newVisibleActivities]);
+    }
+  };
 
   return (
     <div>
@@ -44,16 +61,17 @@ export const ActivityPage = () => {
       </p>
 
       <CategoriesBar setActivity={setActivity} />
+      <MiniPlayerBar />
       <Search />
-      <div>
-        {/* Sicherstellen, dass activity nicht null oder undefined ist */}
+      <div className="flex flex-col items-center justify-center">
         <Masonry columns={2} spacing={2}>
-          {activity && activity.length > 0 ? (
-            activity.map((singleActivity, index) => {
+          {visibleActivities && visibleActivities.length > 0 ? (
+            visibleActivities.map((singleActivity, index) => {
               const heightClass = index % 4 === 0 || (index + 1) % 4 === 3 ? 'h-[210px]' : 'h-[167px]';
 
               return (
-                <div
+                <Link
+                  to={`/${type}/${singleActivity.id}`}
                   key={singleActivity.id ?? index}
                   className={`w-[177px] ${heightClass} rounded-2xl overflow-hidden relative`}>
                   {singleActivity.video_url ? (
@@ -61,13 +79,18 @@ export const ActivityPage = () => {
                   ) : (
                     <ActivityCard img={singleActivity.image_url} title={singleActivity.title} />
                   )}
-                </div>
+                </Link>
               );
             })
           ) : (
             <div>No activities available</div> // Optionaler Fallback, falls activity leer ist
           )}
         </Masonry>
+        {activity && visibleActivities && visibleActivities.length < activity.length && (
+          <div className="font-black dark-green text-3xl cursor-pointer text-center" onClick={loadContent}>
+            ...
+          </div>
+        )}
       </div>
       <Footer />
     </div>

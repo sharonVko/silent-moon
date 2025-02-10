@@ -28,7 +28,7 @@ export const Search = () => {
   const filteredMeditation = meditationList.filter(item => item.title.toLowerCase().includes(searchTerm.toLowerCase()));
 
   return (
-    <div className="relative">
+    <div className="relative mb-4">
       <label className="input input-bordered flex items-center gap-2 bg-[#9da4a8] w-full mb-3 relative">
         <input
           type="text"

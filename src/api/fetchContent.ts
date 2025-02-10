@@ -1,3 +1,4 @@
+import { Track } from '../components/miniPlayerBar/MiniPlayerBar';
 import supabase from '../utils/supabase';
 
 export const fetchYoga = async () => {
@@ -124,4 +125,26 @@ export const fetchWithCategory = async (activity: string, categoryId: number) =>
   }
 
   return data || [];
+};
+
+export const fetchRandomTrack = async (): Promise<Track | null> => {
+  const { data, error } = await supabase
+    .from('playlist_tracks')
+    .select('*')
+    .gte('id', 1) // ID >= 1
+    .lte('id', 10) // ID <= 10
+    .order('id', { ascending: false }) // Временный порядок, чтобы API приняло
+    .limit(10); // Берем 10 треков
+
+  if (error) {
+    console.error('Fehler beim Abrufen der TrackSingle:', error);
+    return null;
+  }
+
+  if (data && data.length > 0) {
+    const randomIndex = Math.floor(Math.random() * data.length); // Локальный рандом
+    return data[randomIndex] as Track;
+  }
+
+  return null;
 };
