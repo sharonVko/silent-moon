@@ -24,8 +24,8 @@ export const ItemSong = ({ id, title, duration }: { id: number; title: string; d
     <Link to={`/player/${id}`} className="flex gap-5 py-3">
       <PlayIcon />
       <div className="">
-        <p className="font-semibold text-[16px]">{title}</p>
-        <p className="font-semibold text-[11px]">{duration}</p>
+        <p className="font-semibold text-[16px] text-[#3F414E] pb-1.5">{title}</p>
+        <p className="font-semibold text-[11px] text-[#A1A4B2] text-start">{duration}</p>
       </div>
     </Link>
       <hr className="border-t border-gray-100 my-2"/>
