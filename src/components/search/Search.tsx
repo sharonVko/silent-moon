@@ -51,9 +51,11 @@ export const Search = () => {
             <div>
               <h3 className="font-bold">Yoga</h3>
               {filteredYoga.map(yogaSingle => (
-                <Link to={`/yoga/${yogaSingle.id}`} key={yogaSingle.id}>
-                  {yogaSingle.title}
-                </Link>
+                <p>
+                  <Link to={`/yoga/${yogaSingle.id}`} key={yogaSingle.id}>
+                    {yogaSingle.title}
+                  </Link>
+                </p>
               ))}
             </div>
           )}
@@ -61,9 +63,11 @@ export const Search = () => {
             <div>
               <h3 className="font-bold">Meditation</h3>
               {filteredMeditation.map(meditationSingle => (
-                <Link to={`/meditation/${meditationSingle.id}`} key={meditationSingle.id}>
-                  {meditationSingle.title}
-                </Link>
+                <p>
+                  <Link to={`/meditation/${meditationSingle.id}`} key={meditationSingle.id}>
+                    {meditationSingle.title}
+                  </Link>
+                </p>
               ))}
             </div>
           )}
