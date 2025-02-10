@@ -27,7 +27,7 @@ export const MiniPlayerBar = () => {
     loadRandomTrack();
   }, [type]);
   return (
-    <div className="rounded-2xl overflow-hidden relative">
+    <div className=" relative">
       <Link to={`/player/${randomTrack?.id}`}>
         <div className="flex flex-col absolute z-100 top-8 left-8">
           <p className="text-[16px] font-semibold text-[#4A503D]">{randomTrack?.title}</p>

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { PreviewCard } from '../previewCard/PreviewCard';
 import { Meditation, Yoga } from '../../pages/home/Home';
 import { fetchMeditation, fetchYoga } from '../../api/fetchContent';
+import { Loader } from '../loader/Loader';
 
 export const PreviewCardContainer = () => {
   const [previewCardYoga, setPreviewCardYoga] = useState<Yoga | null>(null);
@@ -27,8 +28,9 @@ export const PreviewCardContainer = () => {
 
   return (
     <>
-      {' '}
-      {previewCardYoga && (
+      {!previewCardYoga ? (
+        <Loader />
+      ) : (
         <PreviewCard
           title={previewCardYoga.title}
           level={previewCardYoga.level}
@@ -36,7 +38,10 @@ export const PreviewCardContainer = () => {
           video_url={previewCardYoga.video_url}
         />
       )}
-      {previewCardMeditation && (
+
+      {!previewCardMeditation ? (
+        <Loader />
+      ) : (
         <PreviewCard
           title={previewCardMeditation.title}
           level={previewCardMeditation.level}

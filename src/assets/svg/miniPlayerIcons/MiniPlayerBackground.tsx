@@ -1,6 +1,6 @@
 export const MiniPlayerBackground = () => {
   return (
-    <div className="h-[95px] w-full overflow-hidden relative bg-[#faf2da] mb-5">
+    <div className="h-[95px] w-full rounded-2xl overflow-hidden relative bg-[#faf2da] mb-5">
       <svg xmlns="http://www.w3.org/2000/svg" width="98" height="95" viewBox="0 0 98 95" fill="none">
         <path
           opacity="0.5"

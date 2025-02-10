@@ -9,6 +9,7 @@ import 'swiper/css/pagination';
 import { FreeMode, Pagination } from 'swiper/modules';
 import { ArticleCard } from '../articleCard/ArticleCard';
 import { Meditation, Yoga } from '../../pages/home/Home';
+import { Loader } from '../loader/Loader';
 
 export const ArticleList = ({ yoga, meditation }: { yoga: Yoga[]; meditation: Meditation[] }) => {
   return (
@@ -22,13 +23,15 @@ export const ArticleList = ({ yoga, meditation }: { yoga: Yoga[]; meditation: Me
           freeMode={true}
           modules={[FreeMode, Pagination]}
           className="mySwiper">
-          {yoga?.map(yogaSingle => (
-            <SwiperSlide key={yogaSingle.id}>
-              {' '}
-              {/* Hinzufügen des keys hier */}
-              <ArticleCard yogaSingle={yogaSingle} />
-            </SwiperSlide>
-          ))}
+          {!yoga || yoga.length === 0 ? (
+            <Loader />
+          ) : (
+            yoga.map(yogaSingle => (
+              <SwiperSlide key={yogaSingle.id}>
+                <ArticleCard yogaSingle={yogaSingle} />
+              </SwiperSlide>
+            ))
+          )}
         </Swiper>
       </div>
       <div className="recomendet__meditation">
@@ -39,13 +42,15 @@ export const ArticleList = ({ yoga, meditation }: { yoga: Yoga[]; meditation: Me
           freeMode={true}
           modules={[FreeMode, Pagination]}
           className="mySwiper">
-          {meditation?.map(meditationSingle => (
-            <SwiperSlide key={meditationSingle.id}>
-              {' '}
-              {/* Hinzufügen des keys hier */}
-              <ArticleCard meditationSingle={meditationSingle} />
-            </SwiperSlide>
-          ))}
+          {!meditation || meditation.length === 0 ? (
+            <Loader />
+          ) : (
+            meditation.map(meditationSingle => (
+              <SwiperSlide key={meditationSingle.id}>
+                <ArticleCard meditationSingle={meditationSingle} />
+              </SwiperSlide>
+            ))
+          )}
         </Swiper>
       </div>
     </>
