@@ -29,7 +29,7 @@ export const Footer = () => {
           {({ isActive }) => <img src={isActive ? HomeActive : HomeInactive} alt="" className="w-12 h-12" />}
         </NavLink>
 
-        <NavLink to="/music">
+        <NavLink to="/music/b18f83fa-c79f-4008-884f-6ae80800e79e">
           {({ isActive }) => <img src={isActive ? MusicActive : MusicInactive} alt="" className="w-12 h-12" />}
         </NavLink>
 
