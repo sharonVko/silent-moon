@@ -121,7 +121,7 @@ body {
   background-color: #e28f83;
   color: #ffffff;
   border-radius: 40px;
-  width: 80vw;
+  width: 320px;
   height: 60px;
 }
 
@@ -130,7 +130,16 @@ body {
   border: 1px solid #e28f83;
   color: #a1a4b2;
   border-radius: 40px;
-  width: 80vw;
+  width: 320px;
+  height: 60px;
+}
+
+.no-reminder {
+  background-color: #ffffff;
+  border: 1px solid #e28f83;
+  color: #e28f83;
+  border-radius: 40px;
+  width: 320px;
   height: 60px;
 }
 
