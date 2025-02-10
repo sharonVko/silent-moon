@@ -7,7 +7,7 @@ export const Welcome = () => {
   const {user} = useUserContext()
 
   return (
-    <div className=" mx-auto">
+    <div className="relative mx-auto">
       <div className="bg-[url('/img/welcome_page.png')] bg-contain bg-no-repeat h-screen w-full mb-12"></div>
 
       <h3 className="light-cream text-center text-[16px] font-medium tracking-widest absolute inset-x-0 top-6 z-1 ">

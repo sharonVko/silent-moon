@@ -5,7 +5,7 @@ import { Login } from './pages/login/Login';
 import { Welcome } from './pages/welcome/Welcome';
 import { Home } from './pages/home/Home';
 import { PageDetail } from './pages/pageDetail/PageDetail';
-import { Music } from './pages/music/Music';
+import Music from './pages/music/Music';
 import { Reminders } from './pages/reminders/Reminders';
 import { MeditationPlayer } from './pages/meditationPlayer/MeditationPlayer';
 import { ActivityPage } from './pages/activity/Activity';
