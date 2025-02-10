@@ -55,22 +55,21 @@ const UserAvatar = () => {
     };
 
     return (
-        <div className="avatar-container">
+        <div className="fllex flex-col items-center mt-20 ml-3 mb-3">
             {avatarUrl ? (
                 <img
                     src={avatarUrl}
                     alt="Avatar"
-                    className="avatar-image"
                     style={{ height: 100, width: 100, borderRadius: '50%', objectFit: 'cover' }}
                 />
             ) : (
-                <div className="avatar-placeholder"
+                <div
                     style={{ height: 100, width: 100, borderRadius: '50%', backgroundColor: '#e2e8f0' }}
                 />
             )}
-            <div className="avatar-upload">
-                <label className="upload-button" htmlFor="single">
-                    {uploading ? 'Uploading ...' : 'Upload Avatar'}
+            <div className="w-full text-center p-0.5">
+                <label className="grey f-s-14 sans-pro-600 mt-2" htmlFor="single">
+                    {uploading ? 'Uploading ...' : avatarUrl ? 'Edit Avatar' : 'Upload Avatar'}
                 </label>
                 <input
                     style={{
