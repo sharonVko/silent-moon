@@ -30,15 +30,62 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route path="/home" element={<Home />} />
-
-        <Route path="activity/:type" element={<ActivityPage />} />
-
-        <Route path="/music" element={<Music />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/reminders" element={<Reminders />} />
-        <Route path="/:article/:id" element={<PageDetail />} />
-        <Route path="/player/:id" element={<MeditationPlayer />} />
+        <Route
+          path="/home"
+          element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="activity/:type"
+          element={
+            <ProtectedRoute>
+              <ActivityPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/music"
+          element={
+            <ProtectedRoute>
+              <Music />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/reminders"
+          element={
+            <ProtectedRoute>
+              <Reminders />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/:article/:id"
+          element={
+            <ProtectedRoute>
+              <PageDetail />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/player/:id"
+          element={
+            <ProtectedRoute>
+              <MeditationPlayer />
+            </ProtectedRoute>
+          }
+        />
       </Route>
     )
   );
