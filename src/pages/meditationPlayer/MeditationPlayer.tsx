@@ -15,7 +15,7 @@ interface MeditationPlayerProps {
 }
 
 export const MeditationPlayer: React.FC = () => {
-  /* const [music, setMusic] = useState(''); */
+ 
   const [music, setMusic] = useState<Partial<MeditationPlayerProps>>({});
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -28,7 +28,7 @@ export const MeditationPlayer: React.FC = () => {
       const { data, error } = await supabase.from('playlist_tracks').select('*').eq('id', id).single();
 
       if (data) {
-        // Zusätzlicher Fetch für die Playlist-Daten
+        //  Fetch for playlist data
         const { data: playlistData, error: playlistError } = await supabase
           .from('music_playlists')
           .select('title')
