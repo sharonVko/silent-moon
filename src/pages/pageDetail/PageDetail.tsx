@@ -7,6 +7,7 @@ import { FavouriteButton } from '../../components/favouriteButton.tsx/FavouriteB
 import { UserCount } from '../../components/userCount/UserCount';
 import { ItemSong } from '../../components/itemSong/ItemSong';
 import { DownloadButton } from '../../components/downloadButton/DownloadButton';
+import { Footer } from '../../components/footer/Footer';
 interface Track {
   id: number;
   title: string | null;
@@ -93,6 +94,7 @@ export const PageDetail = () => {
       <Backbutton />
       <DownloadButton video={activity?.video_url} image={activity?.image_url} />
       <FavouriteButton article={article ?? ''} id={id ?? ''} />
+      <Footer />
     </div>
   );
 };
