@@ -43,25 +43,25 @@ Developed by a dedicated team of three:
 To install and run the app locally, follow these steps:
 
 1. Clone the repository:
+
    ```bash
    git clone git@github.com:sharonVko/silent-moon.git
    ```
+
 2. Navigate to the project directory:
 
    ```
    cd silent-moon
-
    ```
 
 3. Install dependencies:
 
-```
-npm install
-
-```
+   ```
+   npm install
+   ```
 
 4. Start the development server:
 
-```
-npm run dev
-```
+   ```
+   npm run dev
+   ```
