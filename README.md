@@ -48,13 +48,15 @@ To install and run the app locally, follow these steps:
    ```
 2. Navigate to the project directory:
 
-   ```cd silent-moon
+   ```
+   cd silent-moon
 
    ```
 
 3. Install dependencies:
 
-```npm install
+```
+npm install
 
 ```
 
