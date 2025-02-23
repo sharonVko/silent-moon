@@ -1,50 +1,63 @@
-# React + TypeScript + Vite
+# SILENT MOON 🌙
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**SILENT MOON** is a meditation and yoga app designed to help users consciously relax and reduce stress. With personalized recommendations, music, reminders, and a collection of exercises, the app provides an easy way to integrate mindfulness into daily life. 🌙✨
 
-Currently, two official plugins are available:
+## Preview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![screenshot](./public/img/presentationPreview.png)
 
-## Expanding the ESLint configuration
+### Or check it out live : [SILENT MOON](https://silent-moon.netlify.app/)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Features
 
-- Configure the top-level `parserOptions` property like this:
+- **User Registration & Login**: Users can either register or log in directly if they are already registered.
+- **Personalized Greetings**: Users are personally addressed and greeted upon login.
+- **Home Page Recommendations**: Users receive recommendations for yoga or meditation on the home page.
+- **Intuitive Search**: An easy-to-use search bar & category swipe bar to quickly find content.
+- **Detailed Views**: Depending on the selection, users are directed to a detailed view with video or playlist and further information.
+- **Favorite & Download**: Users can favorite or download content.
+- **Music Player**: Clicking on a track in the playlist opens the music player for easy control.
+- **Footer Navigation**: Users can navigate easily through symbols in the footer to reach their desired page.
+- **User Profile**: Users have an overview of their favorited content, can edit their profile picture, and access the meditation reminder or log out.
+- **Activity Pages**: Additional search options for subcategories on yoga and meditation activity pages.
+- **Mini Player**: A recommended playlist track is played in the mini player. For the full tracklist view, users can access the music page.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Technology Stack
+
+- **Frontend**: Vite, React, TypeScript, Tailwind CSS
+- **Libraries**: Daisy UI, Masonry and more
+- **Routing**: React-Router
+- **Backend**: Supabase
+- **Design**: Figma template (mostly predefined)
+
+## Development Team
+
+Developed by a dedicated team of three:
+
+- [FranticMario](https://github.com/FranticMario)
+- [Daniel](https://github.com/griez97)
+- [sharonVko](https://github.com/sharonVko)
+
+## Installation
+
+To install and run the app locally, follow these steps:
+
+1. Clone the repository:
+   ```bash
+   git clone git@github.com:sharonVko/silent-moon.git
+   ```
+2. Navigate to the project directory:
+   ```cd silent-moon
+
+   ```
+
+````
+3. Install dependencies:
+```npm install
+````
+
+4. Start the development server:
+
 ```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+npm run dev
 ```
